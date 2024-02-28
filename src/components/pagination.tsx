@@ -3,59 +3,60 @@ import {
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
-} from 'lucide-react'
+} from "lucide-react";
 
-import { useSearchParams } from 'react-router-dom'
-import { Button } from './ui/button'
-import { Select, SelectContent, SelectItem, SelectTrigger } from './ui/select'
+import { useSearchParams } from "react-router-dom";
+import { Button } from "./ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger } from "./ui/select";
 
 interface PaginationProps {
-  pages: number
-  items: number
-  page: number
+  pages: number;
+  items: number;
+  page: number;
+  perPage: number;
 }
 
 export function Pagination({ items, page, pages }: PaginationProps) {
-  const [, setSearchParams] = useSearchParams()
+  const [, setSearchParams] = useSearchParams();
 
   function firstPage() {
-    setSearchParams(params => {
-      params.set('page', '1')
+    setSearchParams((params) => {
+      params.set("page", "1");
 
-      return params
-    })
+      return params;
+    });
   }
 
   function previousPage() {
     if (page - 1 <= 0) {
-      return
+      return;
     }
 
-    setSearchParams(params => {
-      params.set('page', String(page - 1))
+    setSearchParams((params) => {
+      params.set("page", String(page - 1));
 
-      return params
-    })
+      return params;
+    });
   }
 
   function nextPage() {
     if (page + 1 > pages) {
-      return
+      return;
     }
 
-    setSearchParams(params => {
-      params.set('page', String(page + 1))
+    setSearchParams((params) => {
+      params.set("page", String(page + 1));
 
-      return params
-    })
+      return params;
+    });
   }
 
   function lastPage() {
-    setSearchParams(params => {
-      params.set('page', String(pages))
+    setSearchParams((params) => {
+      params.set("page", String(pages));
 
-      return params
-    })
+      return params;
+    });
   }
 
   return (
@@ -75,7 +76,9 @@ export function Pagination({ items, page, pages }: PaginationProps) {
           </Select>
         </div>
 
-        <span>Page {page} of {pages}</span>
+        <span>
+          Page {page} of {pages}
+        </span>
 
         <div className="space-x-1.5">
           <Button onClick={firstPage} size="icon" disabled={page - 1 <= 0}>
@@ -97,5 +100,5 @@ export function Pagination({ items, page, pages }: PaginationProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
