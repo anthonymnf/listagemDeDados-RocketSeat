@@ -71,7 +71,7 @@ export function Pagination({ items, page, pages, perPage }: PaginationProps) {
         Showing {perPage} of {items} items
       </span>
       <div className="flex items-center gap-8  flex-wrap">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-x-2">
           <span>Rows per page</span>
 
           <Select defaultValue="10" onValueChange={handlePerPage}>
@@ -83,7 +83,7 @@ export function Pagination({ items, page, pages, perPage }: PaginationProps) {
             </SelectContent>
           </Select>
         </div>
-        <div className="flex gap-x-6 items-center">
+        <div className="flex gap-x-2 items-center">
           <span>
             Page {page} of {pages}
           </span>
