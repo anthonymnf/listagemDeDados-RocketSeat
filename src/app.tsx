@@ -53,7 +53,7 @@ export function App() {
   const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
   const perPage = searchParams.get("perPage")
     ? Number(searchParams.get("perPage"))
-    : 3;
+    : 10;
 
   const {
     data: tagsResponse,
@@ -92,7 +92,7 @@ export function App() {
   }
 
   return (
-    <div className="py-10 space-y-8">
+    <div className="py-10 space-y-8 px-2">
       <div>
         <Header />
         <Tabs />
@@ -131,7 +131,7 @@ export function App() {
           )}
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap gap-2">
           <form onSubmit={handleFilter} className="flex items-center gap-2">
             <Input variant="filter">
               <Search className="size-3" />
