@@ -53,7 +53,7 @@ export function App() {
   const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
   const perPage = searchParams.get("perPage")
     ? Number(searchParams.get("perPage"))
-    : 10;
+    : 3;
 
   const {
     data: tagsResponse,
@@ -215,7 +215,7 @@ export function App() {
             pages={tagsResponse.pages}
             items={tagsResponse.items}
             page={page}
-            perPage={tagsResponse.perPage}
+            perPage={perPage}
           />
         )}
       </main>
