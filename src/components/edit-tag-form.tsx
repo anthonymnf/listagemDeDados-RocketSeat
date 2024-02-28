@@ -1,4 +1,4 @@
-import { Check, Loader2, X } from "lucide-react";
+import { Check, Loader2, TrashIcon, X } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,7 +21,7 @@ function getSlugFromString(input: string): string {
     .replace(/\s+/g, "-");
 }
 
-export function CreateTagForm() {
+export function EditTagForm() {
   const queryClient = useQueryClient();
 
   const { register, handleSubmit, watch, formState } = useForm<CreateTagSchema>(
@@ -107,6 +107,9 @@ export function CreateTagForm() {
             <Check className="size-3" />
           )}
           Save
+        </Button>
+        <Button className="bg-red-500 text-teal-950">
+          <TrashIcon className="size-3" /> Delet
         </Button>
       </div>
     </form>

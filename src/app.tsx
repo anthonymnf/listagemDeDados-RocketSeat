@@ -24,6 +24,7 @@ import { useSearchParams } from "react-router-dom";
 import { FormEvent, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { CreateTagForm } from "./components/create-tag-form";
+import { EditTagForm } from "./components/edit-tag-form";
 
 export interface TagResponse {
   first: number;
@@ -183,9 +184,25 @@ export function App() {
                     {tag.amountOfVideos} video(s)
                   </TableCell>
                   <TableCell className="text-right">
-                    <Button size="icon">
-                      <MoreHorizontal className="size-4" />
-                    </Button>
+                    <Dialog.Root>
+                      <Dialog.Trigger asChild>
+                        <Button size="icon">
+                          <MoreHorizontal className="size-4" />
+                        </Button>
+                      </Dialog.Trigger>
+                      <Dialog.Portal>
+                        <Dialog.Overlay className="fixed inset-0 bg-black/70" />
+                        <Dialog.Content className="fixed space-y-5 p-10 right-0 top-0 bottom-0 h-screen min-w-[320px] z-10 bg-zinc-950 border-l border-zinc-900">
+                          <div className="space-y-3">
+                            <Dialog.Title className="text-xl font-bold">
+                              Options
+                            </Dialog.Title>
+                          </div>
+                          <h2>Edit</h2>
+                          <EditTagForm />
+                        </Dialog.Content>
+                      </Dialog.Portal>
+                    </Dialog.Root>
                   </TableCell>
                 </TableRow>
               );
