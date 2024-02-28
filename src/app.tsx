@@ -166,7 +166,7 @@ export function App() {
             {tagsResponse?.data.map((tag) => {
               return (
                 <TableRow key={tag.id}>
-                  <TableCell>
+                  <TableCell className="text-center">
                     <input
                       type="checkbox"
                       name="check"
